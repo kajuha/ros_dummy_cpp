@@ -1,0 +1,6 @@
+<launch>
+    <node pkg="dummy_cpp" type="dummy_cpp" name="dummy_cpp" output="screen">
+        <param name = "pkg_test_name" value="dummy_cpp" />
+        <param name = "pkg_test_ver" value = "0.1"/>
+    </node>
+</launch>
