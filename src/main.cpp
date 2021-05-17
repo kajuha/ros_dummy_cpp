@@ -1,6 +1,10 @@
 #include <std_msgs/Empty.h>
 #include <boost/thread.hpp>
 
+#include <Eigen/Dense>
+
+using Eigen::MatrixXd;
+
 #include "dummy_cpp/msg_int.h"
 #include "dummy_cpp/msg_float.h"
 
@@ -26,6 +30,14 @@ void fThread(int* thread_rate) {
 
 int main(int argc, char** argv)
 {
+    MatrixXd a(2, 2);
+    MatrixXd b(2, 2);
+    MatrixXd c(2, 2);
+    a << 1, 0, 0, 1;
+    b << 1, 2, 3, 4;
+    c = a * b;
+    std::cout << c << std::endl;
+
     ros::init(argc, argv, "dummy_cpp");
     ros::NodeHandle nh("~");
     
@@ -60,6 +72,8 @@ int main(int argc, char** argv)
         if ( time_diff > PERIOD) {
             time_pre = time_cur;
         }
+
+        printf("timd_diff: %lf\n", time_diff);
 
         ros::spinOnce();
 

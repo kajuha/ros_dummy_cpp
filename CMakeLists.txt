@@ -12,6 +12,10 @@ find_package(catkin REQUIRED COMPONENTS
   serial
   std_msgs
   message_generation
+  cmake_modules
+)
+
+find_package(Eigen REQUIRED
 )
 
 ## System dependencies are found with CMake's conventions
@@ -108,6 +112,7 @@ catkin_package(
   LIBRARIES dummy_cpp
   CATKIN_DEPENDS roscpp serial std_msgs
   #DEPENDS system_lib
+  DEPENDS Eigen
 )
 
 ###########
@@ -118,7 +123,9 @@ catkin_package(
 ## Your package locations should be listed before other locations
 include_directories(
  include
-  ${catkin_INCLUDE_DIRS}
+ ${catkin_INCLUDE_DIRS}
+ ${Eigen_INCLUDE_DIRS}
+  # /usr/include/eigen3
 )
 
 ## Declare a C++ library
@@ -152,7 +159,7 @@ add_dependencies(dummy_cpp dummy_cpp_generate_messages_cpp)
 ## Specify libraries to link a library or executable target against
  target_link_libraries(dummy_cpp
    ${catkin_LIBRARIES}
-	
+   
  )
 # target_link_libraries(${PROJECT_NAME}_library ${catkin_LIBRARIES})
 
