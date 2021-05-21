@@ -1,0 +1,5 @@
+<launch>
+	<include file="$(find dummy_cpp)/launch/base.launch">
+		<arg name="test" value="test"/>
+	</include>
+</launch>
