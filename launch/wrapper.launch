@@ -1,5 +1,6 @@
 <launch>
 	<include file="$(find dummy_cpp)/launch/base.launch">
 		<arg name="test" value="test"/>
+    	<arg name="output_type" value="screen"/>
 	</include>
 </launch>
