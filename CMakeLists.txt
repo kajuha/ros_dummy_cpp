@@ -8,10 +8,10 @@ project(dummy_cpp)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  message_generation
   roscpp
   serial
   std_msgs
-  message_generation
   cmake_modules
 )
 
@@ -109,7 +109,7 @@ find_package(Eigen REQUIRED
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
   INCLUDE_DIRS include
-  LIBRARIES dummy_cpp
+  # LIBRARIES dummy_cpp
   CATKIN_DEPENDS roscpp serial std_msgs
   #DEPENDS system_lib
   DEPENDS Eigen
@@ -129,9 +129,9 @@ include_directories(
 )
 
 ## Declare a C++ library
-add_library(${PROJECT_NAME}_library
-	src/main.cpp
-)
+# add_library(${PROJECT_NAME}_library
+# 	src/main.cpp
+# )
 
 
 ## Add cmake target dependencies of the library
@@ -153,13 +153,12 @@ add_executable(dummy_cpp src/main.cpp)
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 # add_dependencies(dummy_cpp dummy_cpp_generate_messages_cpp ${catkin_EXPORTED_TARGETS})
-add_dependencies(dummy_cpp dummy_cpp_generate_messages_cpp)
+add_dependencies(dummy_cpp ${PROJECT_NAME}_generate_messages_cpp)
 # add_dependencies(dummy_cpp ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
  target_link_libraries(dummy_cpp
    ${catkin_LIBRARIES}
-   
  )
 # target_link_libraries(${PROJECT_NAME}_library ${catkin_LIBRARIES})
 
