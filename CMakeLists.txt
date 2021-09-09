@@ -15,7 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
   cmake_modules
 )
 
-find_package(Eigen REQUIRED
+find_package(Eigen3 REQUIRED
 )
 
 ## System dependencies are found with CMake's conventions
@@ -112,7 +112,7 @@ catkin_package(
   # LIBRARIES dummy_cpp
   CATKIN_DEPENDS roscpp serial std_msgs
   #DEPENDS system_lib
-  DEPENDS Eigen
+  # DEPENDS Eigen
 )
 
 ###########
@@ -124,7 +124,7 @@ catkin_package(
 include_directories(
  include
  ${catkin_INCLUDE_DIRS}
- ${Eigen_INCLUDE_DIRS}
+ ${Eigen3_INCLUDE_DIRS}
   # /usr/include/eigen3
 )
 
