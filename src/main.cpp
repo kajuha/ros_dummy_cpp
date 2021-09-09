@@ -1,7 +1,7 @@
 #include <std_msgs/Empty.h>
 #include <boost/thread.hpp>
 
-#include <Eigen/Dense>
+#include <eigen3/Eigen/Dense>
 
 using Eigen::MatrixXd;
 
