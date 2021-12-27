@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(dummy_cpp)
+project(ros_dummy_cpp)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -109,7 +109,7 @@ find_package(Eigen3 REQUIRED
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
   INCLUDE_DIRS include
-  # LIBRARIES dummy_cpp
+  # LIBRARIES ros_dummy_cpp
   CATKIN_DEPENDS roscpp serial std_msgs
   #DEPENDS system_lib
   # DEPENDS Eigen
@@ -142,7 +142,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(dummy_cpp src/main.cpp)
+add_executable(ros_dummy_cpp src/main.cpp)
  
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -152,12 +152,12 @@ add_executable(dummy_cpp src/main.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-# add_dependencies(dummy_cpp dummy_cpp_generate_messages_cpp ${catkin_EXPORTED_TARGETS})
-add_dependencies(dummy_cpp ${PROJECT_NAME}_generate_messages_cpp)
-# add_dependencies(dummy_cpp ${catkin_EXPORTED_TARGETS})
+# add_dependencies(ros_dummy_cpp ros_dummy_cpp_generate_messages_cpp ${catkin_EXPORTED_TARGETS})
+add_dependencies(ros_dummy_cpp ${PROJECT_NAME}_generate_messages_cpp)
+# add_dependencies(ros_dummy_cpp ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
- target_link_libraries(dummy_cpp
+ target_link_libraries(ros_dummy_cpp
    ${catkin_LIBRARIES}
  )
 # target_link_libraries(${PROJECT_NAME}_library ${catkin_LIBRARIES})

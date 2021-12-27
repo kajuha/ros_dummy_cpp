@@ -2,8 +2,8 @@
     <arg name="test" doc="test"/>
     <arg name="message_display" default="screen" doc="output type"/>
     
-    <node pkg="dummy_cpp" type="dummy_cpp" name="dummy_cpp" output="$(arg message_display)">
-        <param name="pkg_test_name" value="dummy_cpp" />
+    <node pkg="ros_dummy_cpp" type="ros_dummy_cpp" name="ros_dummy_cpp" output="$(arg message_display)">
+        <param name="pkg_test_name" value="ros_dummy_cpp" />
         <param name="pkg_test_ver" value="0.1"/>
         <param name="test" value="$(arg test)"/>
     </node>

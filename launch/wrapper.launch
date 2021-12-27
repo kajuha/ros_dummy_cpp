@@ -1,5 +1,5 @@
 <launch>
-	<include file="$(find dummy_cpp)/launch/base.launch">
+	<include file="$(find ros_dummy_cpp)/launch/base.launch">
 		<arg name="test" value="test"/>
     	<arg name="message_display" value="screen"/>
 	</include>

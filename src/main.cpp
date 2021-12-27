@@ -5,8 +5,8 @@
 
 using Eigen::MatrixXd;
 
-#include "dummy_cpp/msg_int.h"
-#include "dummy_cpp/msg_float.h"
+#include "ros_dummy_cpp/msg_int.h"
+#include "ros_dummy_cpp/msg_float.h"
 
 #include <ros/ros.h>
 
@@ -40,10 +40,10 @@ class ClassTest {
     }
 };
 
-void callBackInt(const dummy_cpp::msg_int::ConstPtr& vel) {
+void callBackInt(const ros_dummy_cpp::msg_int::ConstPtr& vel) {
 }
 
-void callBackFloat(const dummy_cpp::msg_float::ConstPtr& vel) {
+void callBackFloat(const ros_dummy_cpp::msg_float::ConstPtr& vel) {
 }
 
 void fThread(int* thread_rate) {
@@ -74,7 +74,7 @@ int main(int argc, char** argv)
     c = a * b;
     // std::cout << c << std::endl;
 
-    ros::init(argc, argv, "dummy_cpp");
+    ros::init(argc, argv, "ros_dummy_cpp");
     ros::NodeHandle nh("~");
 
     std::vector<std::string> keys;
@@ -89,11 +89,11 @@ int main(int argc, char** argv)
     ros::Subscriber test1_sub = nh.subscribe("test1_sub_topic", 100, callBackInt);
     ros::Subscriber test2_sub = nh.subscribe("test2_sub_topic", 100, callBackFloat);
     
-    ros::Publisher test1_pub = nh.advertise<dummy_cpp::msg_int>("test1_pub_topic", 100);
-    ros::Publisher test2_pub = nh.advertise<dummy_cpp::msg_float>("test2_pub_topic", 100);
+    ros::Publisher test1_pub = nh.advertise<ros_dummy_cpp::msg_int>("test1_pub_topic", 100);
+    ros::Publisher test2_pub = nh.advertise<ros_dummy_cpp::msg_float>("test2_pub_topic", 100);
 
-    dummy_cpp::msg_int msg1;
-    dummy_cpp::msg_float msg2;
+    ros_dummy_cpp::msg_int msg1;
+    ros_dummy_cpp::msg_float msg2;
 
     std::string pkg_test_name;
     double pkg_test_ver;
